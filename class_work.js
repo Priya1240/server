@@ -1,18 +1,42 @@
 
 var http = require("http");
 
-var PORT = 7000;
+var PORT1 = 7000;
+var PORT2 = 7500;
 
-function handleRequest(request, response) {
+function handleRequestOne(request, response) {
 
 	response.end("You're a rock star!");
-	response.end("You are a good developer");
+	
 }
 
-var server = http.createServer(handleRequest);
+function handleRequestTwo(request, response) {
 
-server.listen(PORT, function() {
+	
+	response.end("Bad Priya!");
+}
 
-	console.log("Server listening!");
+var server = http.createServer(handleRequestOne);
+
+server.listen(PORT1, function() {
+
+	console.log("Server One listening!");
+});
+
+var server = http.createServer(handleRequestTwo);
+
+server.listen(PORT2, function() {
+
+	console.log("Server Two listening!");
 })
+
+
+
+var good = ["You're Great!", "You're Amazing", "You're the bomb!", "You're Awesome!"];
+
+
+
+
+
+
 
